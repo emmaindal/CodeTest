@@ -1,9 +1,10 @@
 import React from 'react'
+import { Movies } from './Movies/Movies'
 
-const App = () => {
+function App() {
   return (
     <div className="App">
-      <p>Star Wars</p>
+      <Movies />
     </div>
   )
 }
