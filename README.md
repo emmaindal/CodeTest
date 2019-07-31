@@ -2,12 +2,14 @@
 
 ## Instructions to run the project locally
 
-### 1. clone repository
+`
+ 1. clone repository
 
-### 2. cd /client
+ 2. cd /client
 
-### 3. run npm install
+ 3. run npm install
 
-### 4. run npm start
+ 4. run npm start
 
-### 5. visit http://localhost:3000
+ 5. visit http://localhost:3000
+`
