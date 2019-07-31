@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
-import { Movie } from './Movie'
+
+import { Movies } from './Movies'
 import { ErrorMessage } from '../utils/ErrorMessage'
 import { Loader } from '../utils/Loader'
 
@@ -17,7 +18,7 @@ const sortDataByDate = data => {
   return data
 }
 
-export const Movies = () => {
+export const MoviesContainer = () => {
   const [movies, setMovies] = useState(undefined)
   const [errorMessage, setErrorMessage] = useState(undefined)
 
@@ -31,7 +32,7 @@ export const Movies = () => {
         .catch(err => {
           setErrorMessage('Could not load movies')
         })
-    }, 2000)
+    }, 1000)
   }, [])
 
   // if movies is not set, a loader will be rendered
@@ -39,37 +40,32 @@ export const Movies = () => {
   // if not movies is set but errormessage is set (means that the request failed)
   // a error message will show that no movies could be loaded
   return (
-    <React.Fragment>
+    <Wrapper>
       {movies || errorMessage ? (
         <StyledMovies>
-          <Headings>
-            <Heading>Title</Heading>
-            <Heading>Release Date</Heading>
-          </Headings>
           {errorMessage ? (
             <ErrorMessage error={errorMessage} />
           ) : (
-            <Movie movies={movies} />
+            <Movies movies={movies} />
           )}
         </StyledMovies>
       ) : (
-        <Loader />
+        <Loader width={100} height={100}/>
       )}
-    </React.Fragment>
+    </Wrapper>
   )
 }
 
-// styles
-const StyledMovies = styled.div`
-  width: 30%;
-`
-
-const Headings = styled.div`
+const Wrapper = styled.div`
+  min-height: 100vh;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledMovies = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-const Heading = styled.h4`
-  text-transform: uppercase;
-`

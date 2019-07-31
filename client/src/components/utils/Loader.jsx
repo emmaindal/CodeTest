@@ -6,10 +6,10 @@ const keyframe = keyframes`
 `
 
 export const Loader = styled.div`
-  border: 4px solid #f3f3f3;
-  border-top: 4px solid orange;
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #EF6C00;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: ${props => `${props.width}px`};
+  height:  ${props => `${props.height}px`};
   animation: ${keyframe} 2s ease-in-out 0s infinite;
 `
