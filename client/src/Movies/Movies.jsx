@@ -8,7 +8,7 @@ import { Loader } from '../utils/Loader'
 // sorting algorithm to sort the data by release date
 // takes the the release data of a and b and converts it to a date format
 // returns the sorted data
-const sortData = data => {
+const sortDataByDate = data => {
   data.sort((a, b) => {
     let dateA = new Date(a.release_date)
     let dateB = new Date(b.release_date)
@@ -26,7 +26,7 @@ export const Movies = () => {
     setTimeout(() => {
       axios('https://swapi.co/api/films/')
         .then(({ data: { results } }) => {
-          setMovies(sortData(results))
+          setMovies(sortDataByDate(results))
         })
         .catch(err => {
           setErrorMessage('Could not load movies')
@@ -49,9 +49,7 @@ export const Movies = () => {
           {errorMessage ? (
             <ErrorMessage error={errorMessage} />
           ) : (
-            movies.map(({ title, release_date }) => (
-              <Movie key={title} title={title} release_date={release_date} />
-            ))
+            <Movie movies={movies} />
           )}
         </StyledMovies>
       ) : (
@@ -61,6 +59,7 @@ export const Movies = () => {
   )
 }
 
+// styles
 const StyledMovies = styled.div`
   width: 30%;
 `
