@@ -2,7 +2,7 @@
 
 #### Instructions to run the project locally
 
-1. clone repository
+1. git clone https://github.com/emmaindal/CodeTest.git
 
 2. cd /client
 
