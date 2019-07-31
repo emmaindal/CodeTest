@@ -4,7 +4,7 @@
 
 1. git clone https://github.com/emmaindal/CodeTest.git
 
-2. cd /client
+2. cd client/
 
 3. run npm install
 
